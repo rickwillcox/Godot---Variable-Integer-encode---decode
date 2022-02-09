@@ -5,8 +5,8 @@ extends Node2D
 
 func _ready():
 	#example
-	base_ten_binary_to_varint([130, 44])
-	varint_to_base_ten_binary(300)
+	base_ten_binary_to_varint([173, 136, 72])
+	varint_to_base_ten_binary(738376)
 	
 
 func base_ten_binary_to_varint(pba : PoolByteArray):
@@ -55,6 +55,7 @@ func base_ten_binary_to_varint(pba : PoolByteArray):
 		print(step)
 	print("           ")
 			
+	return number
 	
 func varint_to_base_ten_binary(num : int):
 	var steps = []
