@@ -5,8 +5,8 @@ extends Node2D
 
 func _ready():
 	#example
-	base_ten_binary_to_varint([173, 136, 72])
-	varint_to_base_ten_binary(738376)
+	base_ten_binary_to_varint([136, 224, 212, 226, 162, 81])
+	varint_to_base_ten_binary(300825481553)
 	
 
 func base_ten_binary_to_varint(pba : PoolByteArray):
@@ -17,8 +17,7 @@ func base_ten_binary_to_varint(pba : PoolByteArray):
 	for byte in pba:
 		rev_svn_grps.append(int2bin(byte))
 	steps.append(["convert to binary 2: ", rev_svn_grps.duplicate()])
-	
-	
+
 	
 	# add the leading zeros if any
 	for i in range (rev_svn_grps.size()):
@@ -41,7 +40,7 @@ func base_ten_binary_to_varint(pba : PoolByteArray):
 	var combined_binary = ""
 	for bytes in rev_svn_grps:
 		combined_binary += bytes
-	combined_binary = int(combined_binary)
+	combined_binary = combined_binary
 	
 	steps.append(["put binary together and convert to int: ", combined_binary])
 	
