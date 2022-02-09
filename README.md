@@ -1,9 +1,11 @@
 Used to reducing the packet size in Hathora, but could be used for anything else too.
 
-Encodes a number to base 2 binary > base 10 binary > pool byte array eg:
+Example 300 being converted to Byte Array >   [130, 44]
+![image](https://user-images.githubusercontent.com/53924507/153206608-5a5b85f9-8134-4734-9c21-23ff66f3ff48.png)
 
-10 > [10]
 
-542 > [132, 31]
+Example  [130, 44] byte array being convert back to a number > 300
+![image](https://user-images.githubusercontent.com/53924507/153206703-6f7328ab-ade7-4b2b-af85-5b6eb60c7a37.png)
 
-524353 > [160, 128, 65]
+
+Code needs some serious cleaning up still, but it is mostly functional, Decoding is a bit buggy, fix soon.
