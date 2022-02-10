@@ -3,11 +3,28 @@ extends Node2D
 # varint_to_base_ten_binary(NUMBER) returns bytes in base 10
 # some refactoring needed
 
-func _ready():
-	#example
-	base_ten_binary_to_varint([136, 224, 212, 226, 162, 81])
-	varint_to_base_ten_binary(300825481553)
+
+func get_varint(spb : StreamPeerBuffer, spb_position : int):
+	return base_ten_binary_to_varint(get_varint_bytes(spb, spb_position))
 	
+
+func get_varint_bytes(spb, spb_position):
+	var int_bytes : PoolByteArray = []
+	var binary
+	spb.seek(spb_position)
+	
+	while true:
+		var x = int(str(spb.get_partial_data(1)[1]).replace("[", "").replace("]", "")) 
+		int_bytes.append(x)
+		if x == 0:
+			binary = "0"
+		else:
+			binary = int2bin(x)
+		if binary.length() < 8:
+			break
+			
+	return int_bytes
+		
 
 func base_ten_binary_to_varint(pba : PoolByteArray):
 	var steps = []
